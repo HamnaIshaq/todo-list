@@ -6,12 +6,12 @@ class Project {
     this._id = uuidv4(); // UNIQUE ID FOR A PROJECT
     this._projectName = projectName;
     this._active = false;
-    this._project = [
+    this._TodoList = [
       {
         id: 1,
         title: "walk",
         description: "for 10 min",
-        priority: "medium",
+        priority: 2,
         dueDate: "2023-03-29",
         completed: false,
       },
@@ -19,7 +19,7 @@ class Project {
         id: 2,
         title: "get groceries",
         description: "milk, eggs, fruits",
-        priority: "high",
+        priority: 1,
         dueDate: "2023-03-29",
         completed: false,
       },
@@ -46,12 +46,12 @@ class Project {
     newActive ? (this._active = true) : (this._active = false);
   }
 
-  get project() {
-    return this._project;
+  get TodoList() {
+    return this._TodoList;
   }
 
-  set project(newTodo) {
-    this._project.push(newTodo);
+  set TodoList(newTodo) {
+    this._TodoList.push(newTodo);
   }
 
   getSingleTodo(id) {
@@ -65,27 +65,27 @@ class Project {
   }
 
   updateProjectTodoCompleted(id) {
-    const filteredArr = this._project.map((todo) => {
+    const filteredArr = this._TodoList.map((todo) => {
       if (todo._id === id) {
         todo.completed = !todo.completed;
       }
       return todo;
     });
-    this._project = filteredArr;
+    this._TodoList = filteredArr;
   }
 
   updateProjectTodoPriority(id, priority) {
-    const filteredArr = this._project.map((todo) => {
+    const filteredArr = this._TodoList.map((todo) => {
       if (todo._id === id) {
         todo.priority = priority;
       }
       return todo;
     });
-    this._project = filteredArr;
+    this._TodoList = filteredArr;
   }
 
   updateProjectTodo(id, title, description, dueDate, priority, completed) {
-    const filteredArr = this._project.filter((todo) => {
+    const filteredArr = this._TodoList.filter((todo) => {
       if (todo._id === id) {
         todo.title = title;
         todo.description = description;
@@ -94,16 +94,16 @@ class Project {
         todo.completed = completed;
       }
     });
-    this._project = filteredArr;
+    this._TodoList = filteredArr;
   }
 
   deleteProjectTodo(id) {
-    const filteredArr = this._project.filter((todo) => {
+    const filteredArr = this._TodoList.filter((todo) => {
       if (todo.id !== parseInt(id)) {
         return todo;
       }
     });
-    this._project = filteredArr;
+    this._TodoList = filteredArr;
   }
 }
 
