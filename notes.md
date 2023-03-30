@@ -20,14 +20,14 @@ main logic
 
   - id : num / uuid
   - projectName : str
-  - Todo List : arr of objects
+  - TodoList : arr of objects
 
 - Todo class
   - id : num / uuid
   - title: str
   - description: str
   - dueDate: str (from a calendar)
-  - priority: str (from a select dropdown)
+  - priority: num (from a select dropdown --> 1-high, 2-medium, 3-low)
   - completed: bool
 
 Steps
