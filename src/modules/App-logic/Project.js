@@ -5,16 +5,29 @@ class Project {
   constructor(projectName) {
     this._id = uuidv4(); // UNIQUE ID FOR A PROJECT
     this._projectName = projectName;
+    this._active = false;
     this._project = [
       {
         id: 1,
         title: "walk",
         description: "for 10 min",
-        priority: "urgent",
+        priority: "medium",
+        dueDate: "2023-03-29",
+        completed: false,
+      },
+      {
+        id: 2,
+        title: "get groceries",
+        description: "milk, eggs, fruits",
+        priority: "high",
         dueDate: "2023-03-29",
         completed: false,
       },
     ];
+  }
+
+  get id() {
+    return this._id;
   }
 
   get projectName() {
@@ -25,6 +38,14 @@ class Project {
     this._projectName = newProjectName;
   }
 
+  get active() {
+    return this._active;
+  }
+
+  set active(newActive) {
+    newActive ? (this._active = true) : (this._active = false);
+  }
+
   get project() {
     return this._project;
   }
@@ -33,10 +54,20 @@ class Project {
     this._project.push(newTodo);
   }
 
+  getSingleTodo(id) {
+    const [todo] = this._project.filter((todo) => {
+      if (todo.id === parseInt(id)) {
+        return todo;
+      }
+    });
+
+    return todo;
+  }
+
   updateProjectTodoCompleted(id) {
     const filteredArr = this._project.map((todo) => {
       if (todo._id === id) {
-        todo._completed = !todo._completed;
+        todo.completed = !todo.completed;
       }
       return todo;
     });
@@ -46,7 +77,7 @@ class Project {
   updateProjectTodoPriority(id, priority) {
     const filteredArr = this._project.map((todo) => {
       if (todo._id === id) {
-        todo._priority = priority;
+        todo.priority = priority;
       }
       return todo;
     });
@@ -56,11 +87,11 @@ class Project {
   updateProjectTodo(id, title, description, dueDate, priority, completed) {
     const filteredArr = this._project.filter((todo) => {
       if (todo._id === id) {
-        todo._title = title;
-        todo._description = description;
-        todo._dueDate = dueDate;
-        todo._priority = priority;
-        todo._completed = completed;
+        todo.title = title;
+        todo.description = description;
+        todo.dueDate = dueDate;
+        todo.priority = priority;
+        todo.completed = completed;
       }
     });
     this._project = filteredArr;
@@ -68,7 +99,9 @@ class Project {
 
   deleteProjectTodo(id) {
     const filteredArr = this._project.filter((todo) => {
-      return todo._id !== id;
+      if (todo.id !== parseInt(id)) {
+        return todo;
+      }
     });
     this._project = filteredArr;
   }

@@ -33,12 +33,13 @@ main logic
 Steps
 
 - for 1 project
-  1- create a project
-  2- show dummy todos from created project
-  3- create a new todo
-  4- edit a todo
-  5- delete a todo
-  6- view details of a todo
+  1- create a project ([DONE])
+  2- show dummy todos from created project ([DONE])
+  3- show dummy data of selected project ([])
+  3- create a new todo ([DONE])
+  4- edit a todo ([])
+  5- delete a todo ([DONE])
+  6- view details of a todo ([])
 
 - implement above for more than 1 project
 - use local storage to persist data
