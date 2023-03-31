@@ -60,4 +60,6 @@ and we will also make the instance of todo null
 
 https://dev.to/rahmanfadhil/how-to-generate-unique-id-in-javascript-1b13
 
+<a href="https://gist.github.com/bradtraversy/1c93938c1fe4f10d1e5b0532ae22e16a">Webpack & Tailwind CSS Setup by Brad Traversy</a>
+
 https://www.underthehoodlearning.com/mvc-architectural-design-pattern-with-vanilla-js/
