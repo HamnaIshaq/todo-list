@@ -14,11 +14,12 @@ module.exports = {
     static: "./dist",
     hot: true,
   },
-  /*plugins: [
+  plugins: [
     new HtmlWebpackPlugin({
       title: "Todo List",
+      template: "src/template.html",
     }),
-  ],*/
+  ],
   module: {
     rules: [
       {
