@@ -1,4 +1,6 @@
 // A BLUEPRINT TO CREATE A NEW TODO
+import { v4 as uuidv4 } from "uuid";
+
 class Todo {
   constructor(title, description, dueDate, priority) {
     this.title = title;
@@ -6,7 +8,7 @@ class Todo {
     this.dueDate = dueDate;
     this.priority = priority;
     this.completed = false;
-    this.id = Date.now();
+    this.id = uuidv4();
   }
 }
 
