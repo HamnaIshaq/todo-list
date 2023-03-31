@@ -3,7 +3,16 @@ import Project from "./App-logic/Project";
 export const Initialize = (function () {
   // CREATE A DEFAULT PROJECT CALLED INBOX
   const inbox = new Project("inbox");
-  console.log(inbox);
+
+  const divContainer = document.createElement("div");
+  divContainer.classList.add("flex");
+
+  divContainer.innerHTML = `
+    <div></div>
+  `;
+
+  const root = document.querySelector("#root");
+
   root.classList.add("flex");
   const divEl = document.createElement("div");
   divEl.classList.add("w-1/4");
@@ -20,14 +29,14 @@ export const Initialize = (function () {
       <li class="mb-2">
         <button
           type="button"
-          class="border-2 border-indigo-800 w-full pt-2 pb-2 bg-indigo-800 text-white rounded "
+          class="border-2 border-indigo-800 w-full pt-2 pb-2 bg-indigo-800 text-white rounded"
         >
           ${inbox.projectName}
         </button>
       </li>
     </ul>
 
-    <button type="button" class="text-red-600 w-full text-left">
+    <button type="button" class="text-red-600 w-full text-left add-new-project-btn">
       <span class="text-lg">+</span> Add Project
     </button>
   `;
@@ -43,13 +52,35 @@ export const Initialize = (function () {
   divTodoContainerEl.innerHTML = `
     <div class="flex justify-between mt-3 mb-3">
       <h2 class="text-3xl text-indigo-800">Todo</h2>
-      <button type="button" class="border-2 border-blue-600 bg-blue-600 text-white rounded pl-2 pr-2 add-new-todo-btn">+ Add New</button>
+      <button type="button" class="border-2 border-blue-600 bg-blue-600 text-white rounded pl-2 pr-2" 
+      >+ Add New</button>
     </div>
-    <div class="todo-container ">
+    <div class="mt-3 mb-3">
+      <div class="bg-white border-2 border-blue-500 rounded p-3 text-lg flex items-center justify-between add-todo-input-container">
+        <input type="text" placeholder="Walk the dog" class="border-2 border-indigo-500 new-todo-title" />
+        <textarea class="border-2 border-indigo-500 new-todo-description" placeholder="walk for about 30 min..."></textarea>
+        <input type="date" class="border-2 border-indigo-500 new-todo-due-date"/>
+        <select class="border-2 border-indigo-500 new-todo-priority">
+          <option value="" selected disabled>Select Priority</option>
+          <option value="1">High</option>
+          <option value="2">Medium</option>
+          <option value="3">Low</option>
+        </select>
+        <button type="button" class="border-2 border-red-800 pl-2 pr-2 bg-red-800 text-white rounded-full delete-add-todo-container-btn">
+          X
+        </button>
+        <button type="button" class="border-2 border-green-800 pl-2 pr-2 bg-green-800 text-white add-new-todo-btn" data-project-id=${
+          inbox.id
+        }>
+          Add
+        </button>
+      </div>
+    </div>
+    <div class="todo-container">
       ${inbox.TodoList.map((todo) => {
         return `
         <div
-        class=" bg-white border-2 border-blue-500 rounded p-3 text-lg flex items-center justify-between border-l-4 todo-card-container"
+        class="bg-white border-2 border-blue-500 rounded p-3 text-lg flex items-center justify-between border-l-4 todo-card-container"
         data-todo-id=${todo.id}
         >
         <div>
@@ -70,7 +101,7 @@ export const Initialize = (function () {
           </button>
           <button
             type="button"
-            class="border-2 border-red-800 pl-2 pr-2 bg-red-800 text-white rounded-full"
+            class="border-2 border-red-800 pl-2 pr-2 bg-red-800 text-white rounded-full delete-todo-btn"
           >
             X
           </button>
@@ -83,4 +114,6 @@ export const Initialize = (function () {
 
   root.appendChild(divEl);
   root.appendChild(divTodoContainerEl);
+
+  return inbox;
 })();
