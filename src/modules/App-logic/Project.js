@@ -54,6 +54,10 @@ class Project {
     this._TodoList.push(newTodo);
   }
 
+  addNewTodo(newTodo) {
+    this._TodoList.push(newTodo);
+  }
+
   getSingleTodo(id) {
     const [todo] = this._project.filter((todo) => {
       if (todo.id === parseInt(id)) {
