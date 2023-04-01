@@ -86,7 +86,7 @@ class Project {
 
   deleteProjectTodo(id) {
     const filteredArr = this._TodoList.filter((todo) => {
-      if (todo.id !== parseInt(id)) {
+      if (todo.id !== id) {
         return todo;
       }
     });
