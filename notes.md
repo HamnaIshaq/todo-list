@@ -62,14 +62,14 @@ Initialize.js
 
 31-03-2023
 
-- add new todo to UI and project array
-- delete a todo from UI and project array
+- add new todo to UI and project array - DONE
+- delete a todo from UI and project array - DONE
 
 todo
 
-- add a new project
-- switch between projects
-- show selected projects todos
+- add a new project - DONE
+- switch between projects - DONE
+- show selected projects todos - DONE
 - localstorage
 - integrate date-fns package
 - clean up code
