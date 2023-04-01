@@ -6,24 +6,7 @@ class Project {
     this._id = uuidv4(); // UNIQUE ID FOR A PROJECT
     this._projectName = projectName;
     this._active = false;
-    this._TodoList = [
-      {
-        id: 1,
-        title: "walk",
-        description: "for 10 min",
-        priority: 2,
-        dueDate: "2023-03-29",
-        completed: false,
-      },
-      {
-        id: 2,
-        title: "get groceries",
-        description: "milk, eggs, fruits",
-        priority: 1,
-        dueDate: "2023-03-29",
-        completed: false,
-      },
-    ];
+    this._TodoList = [];
   }
 
   get id() {
