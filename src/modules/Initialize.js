@@ -2,7 +2,8 @@ import Project from "./App-logic/Project";
 
 export const Initialize = (function () {
   // CREATE A DEFAULT PROJECT CALLED INBOX
-  const inbox = new Project("inbox");
+  const inbox = new Project("Inbox");
+  inbox.active = true;
 
   const divContainer = document.createElement("div");
   divContainer.classList.add("flex");
@@ -29,13 +30,16 @@ export const Initialize = (function () {
       <li class="mb-2">
         <button
           type="button"
-          class="border-2 border-indigo-800 w-full pt-2 pb-2 bg-indigo-800 text-white rounded"
+          class="border-2 border-indigo-800 w-full pt-2 pb-2 bg-indigo-800 text-white rounded project-btn"
+          data-project-id=${inbox.id}
         >
           ${inbox.projectName}
         </button>
       </li>
     </ul>
-
+    <div>
+      <input type="text" id="new-project-title" class="block bg-white w-full border border-slate-300 rounded-md p-2" placeholder="Project title..."/>
+    </div>
     <button type="button" class="text-red-600 w-full text-left add-new-project-btn">
       <span class="text-lg">+</span> Add Project
     </button>
@@ -51,7 +55,9 @@ export const Initialize = (function () {
 
   divTodoContainerEl.innerHTML = `
     <div class="flex justify-between mt-3 mb-3">
-      <h2 class="text-3xl text-indigo-800">Todo</h2>
+      <h2 class="text-3xl text-indigo-800 selected-project-name">${
+        inbox.projectName
+      }</h2>
       <button type="button" class="border-2 border-blue-600 bg-blue-600 text-white rounded pl-2 pr-2" 
       >+ Add New</button>
     </div>
@@ -66,9 +72,7 @@ export const Initialize = (function () {
           <option value="2">Medium</option>
           <option value="3">Low</option>
         </select>
-        <button type="button" class="border-2 border-red-800 pl-2 pr-2 bg-red-800 text-white rounded-full delete-add-todo-container-btn">
-          X
-        </button>
+
         <button type="button" class="border-2 border-green-800 pl-2 pr-2 bg-green-800 text-white add-new-todo-btn" data-project-id=${
           inbox.id
         }>
