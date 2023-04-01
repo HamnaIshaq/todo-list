@@ -1,78 +1,59 @@
 import Todo from "../App-logic/Todo";
 
-const AddTodo = (root, data, renderTodo) => {
-  const createNewProjectBtn = root.querySelector(".create-new-project-btn");
-  const projectNameInput = root.querySelector(".project-name");
-  const projectNameContainer = root.querySelector("#project-container");
+export const AddTodo = (root, selectedProject) => {
+  const todoTitle = root.querySelector(".new-todo-title");
+  const todoDescription = root.querySelector(".new-todo-description");
+  const todoDueDate = root.querySelector(".new-todo-due-date");
+  const todoPriority = root.querySelector(".new-todo-priority");
 
-  const todoContainer = root.querySelector(".todos");
+  const addNewTodoBtn = root.querySelector(".add-new-todo-btn");
+  const todoContainer = root.querySelector(".todo-container");
 
-  const todoTitle = root.querySelector(".todo-title");
-  const todoDescription = root.querySelector(".todo-description");
-  const todoPriority = root.querySelector(".todo-priority");
-  const todoDueDate = root.querySelector(".todo-due-date");
-  const addTodoBtn = root.querySelector(".add-todo-btn");
+  addNewTodoBtn.addEventListener("click", getUserInputForTodo);
 
-  todoContainer.addEventListener("click", (e) => onClickTodoContainer(e));
-
-  function onClickTodoContainer(e) {
-    if (e.target.classList.contains("todo-details-btn")) {
-      console.log(e.target);
-      const todoContainer = e.target.closest("div");
-      const todoId = todoContainer.getAttribute("data-todo-id");
-
-      const singleTodo = data.getSingleTodo(todoId);
-
-      const detailsEl = document.createElement("div");
-      detailsEl.innerHTML = `
-        title - ${singleTodo.title}
-        description - ${singleTodo.description}
-        due date - ${singleTodo.dueDate}
-        priority - ${singleTodo.priority}
-        completed - ${singleTodo.completed}
-      `;
-      todoContainer.appendChild(detailsEl);
-    } else if (e.target.classList.contains("todo-delete-btn")) {
-      const todoContainer = e.target.closest("div");
-      const todoId = todoContainer.getAttribute("data-todo-id");
-      data.deleteProjectTodo(todoId);
-
-      todoContainer.remove();
-      console.log(data);
-    }
-  }
-
-  addTodoBtn.addEventListener("click", addTodo);
-
-  function addTodo() {
+  function getUserInputForTodo() {
     if (todoTitle.value === "") {
-      console.log("title is empty");
+      alert("title is empty");
     } else if (todoDescription.value === "") {
-      console.log("description is empty");
-    } else if (todoPriority.value === "") {
-      console.log("priority is not selected");
+      alert("description is empty");
     } else if (todoDueDate.value === "") {
-      console.log("due date is not selected");
+      alert("Due date is empty");
+    } else if (todoPriority.value === "") {
+      alert("Priority is empty");
     } else {
-      console.log("all fields are filled");
-      console.log(
-        todoTitle.value,
-        todoDescription.value,
-        todoPriority.value,
-        todoDueDate.value
-      );
-
-      let todo = new Todo(
+      const newTodo = new Todo(
         todoTitle.value,
         todoDescription.value,
         todoDueDate.value,
-        todoPriority.value
+        parseInt(todoPriority.value)
       );
-      data.project = todo;
-      renderTodo(data.project);
-      console.log(data);
+
+      selectedProject.addNewTodo(newTodo);
+
+      addNewTodoToUI(newTodo);
     }
   }
-};
 
-export default AddTodo;
+  function addNewTodoToUI(newTodo) {
+    const newTodoDivEl = document.createElement("div");
+
+    newTodoDivEl.innerHTML = `
+      <div class="bg-white border-2 border-blue-500 rounded p-3 text-lg flex items-center justify-between border-l-4 todo-card-container" data-todo-id=${newTodo.id}>
+        <div>
+          <input type="checkbox" id=${newTodo.id} class="w-4 h-4 m-0 p-0 align-middle">
+          <label for=${newTodo.id}>${newTodo.title}</label>
+        </div>
+        <div class="flex">
+          <p>Due: ${newTodo.dueDate}</p>
+          <button type="button" class="border-2 border-blue-600 pl-2 pr-2 bg-blue-600 text-white rounded mr-4 ml-4">
+            Details
+          </button>
+          <button type="button" class="border-2 border-red-800 pl-2 pr-2 bg-red-800 text-white rounded-full delete-todo-btn">
+            X
+          </button>
+        </div>
+      </div>
+    `;
+    todoContainer.appendChild(newTodoDivEl);
+  }
+};
