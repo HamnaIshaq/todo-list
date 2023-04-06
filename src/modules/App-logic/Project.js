@@ -1,6 +1,6 @@
-// A BLUEPRINT A´TO CREATE NEW PROJECT WHICH HOSTS CREATED TODOS
 import { v4 as uuidv4 } from "uuid";
 
+// A BLUEPRINT TO CREATE NEW PROJECT WHICH HOSTS CREATED TODOS
 class Project {
   constructor(projectName) {
     this._id = uuidv4(); // UNIQUE ID FOR A PROJECT
@@ -42,8 +42,8 @@ class Project {
   }
 
   getSingleTodo(id) {
-    const [todo] = this._project.filter((todo) => {
-      if (todo.id === parseInt(id)) {
+    const [todo] = this._TodoList.filter((todo) => {
+      if (todo.id === id) {
         return todo;
       }
     });
@@ -53,7 +53,7 @@ class Project {
 
   updateProjectTodoCompleted(id) {
     const filteredArr = this._TodoList.map((todo) => {
-      if (todo._id === id) {
+      if (todo.id === id) {
         todo.completed = !todo.completed;
       }
       return todo;
@@ -61,19 +61,9 @@ class Project {
     this._TodoList = filteredArr;
   }
 
-  updateProjectTodoPriority(id, priority) {
-    const filteredArr = this._TodoList.map((todo) => {
-      if (todo._id === id) {
-        todo.priority = priority;
-      }
-      return todo;
-    });
-    this._TodoList = filteredArr;
-  }
-
   updateProjectTodo(id, title, description, dueDate, priority, completed) {
-    const filteredArr = this._TodoList.filter((todo) => {
-      if (todo._id === id) {
+    this._TodoList.forEach((todo) => {
+      if (todo.id === id) {
         todo.title = title;
         todo.description = description;
         todo.dueDate = dueDate;
@@ -81,7 +71,6 @@ class Project {
         todo.completed = completed;
       }
     });
-    this._TodoList = filteredArr;
   }
 
   deleteProjectTodo(id) {
