@@ -18,7 +18,6 @@ const root = document.querySelector("#root");
 
 OpenCloseModal("addTodoModal", "addTodoModalBtn");
 CloseModalWithCrossBtn("close");
-//OpenCloseModal("updateTodoModal", "updateTodoModalBtn");
 
 AddProject(root, allProjects);
 SelectProject(root, allProjects, selectedProject);
