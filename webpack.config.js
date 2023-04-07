@@ -18,6 +18,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: "Todo List",
       template: "src/template.html",
+      favicon: path.resolve(__dirname, "src/assets/images/homework.png"),
     }),
   ],
   module: {
