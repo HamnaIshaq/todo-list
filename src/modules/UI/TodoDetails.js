@@ -1,14 +1,12 @@
-import { CloseModalWithBtn } from "./Modal";
+import { UpdateTodo } from "./UpdateTodo";
 /*
-  TODO DETAILS AND UPDATE LOGIC
+  TODO DETAILS LOGIC
 
   TODO DETAILS
   WHEN EDIT BUTTON IS CLICKED,
   SHOW DETAILS OF CLICKED TODO IN A MODAL
-
-  TODO UPDATE
-  WHEN UPDATE BUTTON IS CLICKED IN THE MODAL
-  UPDATE THE TODO WITH THE NEWLY ENTERED DATA
+  IF UPDATE BUTTON IS CLICKED
+  UPDATE TODO MODULE IS CALLED
 
 */
 export const TodoDetails = (allProjects) => {
@@ -45,9 +43,11 @@ export const TodoDetails = (allProjects) => {
       todoDueDate.value = details.dueDate;
       todoPriority.value = details.priority;
       todoCompleted.value = details.completed ? "1" : "0";
+
+      UpdateTodo(clickedTodoCard, todoId, selectedProject);
     }
   }
-
+  /*
   updateTodoBtn.addEventListener("click", updateTodo);
 
   function updateTodo() {
@@ -96,5 +96,5 @@ export const TodoDetails = (allProjects) => {
     todoDueDateEl.textContent = `Due: ${todo.dueDate}`;
 
     CloseModalWithBtn("modal-btn");
-  }
+  }*/
 };
