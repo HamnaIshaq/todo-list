@@ -44,7 +44,7 @@ export const TodoDetails = (allProjects) => {
       todoPriority.value = details.priority;
       todoCompleted.value = details.completed ? "1" : "0";
 
-      UpdateTodo(clickedTodoCard, todoId, selectedProject);
+      UpdateTodo(clickedTodoCard, todoId, selectedProject, allProjects);
     }
   }
   /*
