@@ -1,16 +1,48 @@
 import Project from "./App-logic/Project";
+import { GetData } from "./LocalStorage/GetData";
+import { AddData } from "./LocalStorage/AddData";
 
 import Logo from "../assets/images/homework.png";
 import Calendar from "../assets/images/calendar-img.svg";
+import CalendarDark from "../assets/images/calendar-dark.svg";
 import Update from "../assets/images/update.svg";
 import Delete from "../assets/images/delete.svg";
 import Check from "../assets/images/check.svg";
 
-// SHOW BASIC DOM ELEMENTS WITH AN EMPTY DEFAULT PROJECT NAMED 'INDEX'
+/*
+  INITIALIZE PROJECT
+  GET ALL PROJECTS FROM LOCAL STORAGE
+  IF LOCAL STORAGE IS EMPTY
+  CREATE A DEFAULT PROJECT NAMED "INDEX" AND SET IT TO ACTIVE
+  OTHERWISE GET ALL THE PROJECTS SAVED IN LOCAL STORAGE
+  AND SHOW THE 1 THAT WAS LAST ACTIVE 
+*/
 export const Initialize = (function () {
-  // CREATE A DEFAULT PROJECT CALLED INBOX
-  const inbox = new Project("Inbox");
-  inbox.active = true;
+  let allProjects = GetData("projects");
+
+  if (!allProjects) {
+    const inbox = new Project("Inbox");
+    inbox.active = true;
+    AddData([inbox]);
+  }
+
+  allProjects = GetData("projects");
+  let activeProject;
+
+  const newProjects = allProjects.map((project) => {
+    const proj = new Project(
+      project._projectName,
+      project._id,
+      project._active,
+      project._TodoList
+    );
+
+    if (proj.active) {
+      activeProject = proj;
+    }
+
+    return proj;
+  });
 
   const root = document.querySelector("#root");
 
@@ -26,16 +58,34 @@ export const Initialize = (function () {
         Todo List
       </h1>
       <ul class="project-container mr-5">
-        <li class="mb-2">
-          <button
-            type="button"
-            class="flex items-center border-indigo-500 bg-indigo-500 hover:bg-indigo-400 hover:border-indigo-400 w-full py-2 rounded-r-3xl text-white text-left pl-6 ml-0 project-btn"
-            data-project-id=${inbox.id}
-          >
-            <img src=${Calendar} alt="" width="30px" class="mr-3"/>
-            <span>${inbox.projectName}</span>
-          </button>
-        </li>
+      ${newProjects
+        .map((project) => {
+          return project._active
+            ? `
+          <li class="mb-2">
+            <button
+              type="button"
+              class="flex items-center border-indigo-500 bg-indigo-500 hover:bg-indigo-400 hover:border-indigo-400 w-full py-2 rounded-r-3xl text-white text-left pl-6 ml-0 project-btn"
+              data-project-id=${project.id}
+            >
+              <img src=${Calendar} alt="" width="30px" class="mr-3"/>
+              <span>${project.projectName}</span>
+            </button>
+          </li>
+          `
+            : `
+            <li class="mb-2">
+              <button 
+                type="button" 
+                class="flex items-center hover:bg-indigo-400 hover:border-indigo-400 ext-left pl-6 rounded-r-3xl w-full py-2 text-slate-900 project-btn" 
+                data-project-id=${project.id}>
+              <img src=${CalendarDark} alt="" width="30px" class="mr-3"/>
+              <span>${project.projectName}</span>
+              </button>
+            </li>
+          `;
+        })
+        .join("")}
       </ul>
       <div class="py-2 px-5">
         <input type="text" id="new-project-title" class="block bg-white w-full border border-slate-300 rounded-md p-2 focus:outline-none focus:border-sky-500 focus:ring-1" placeholder="Project title..."/>
@@ -50,9 +100,9 @@ export const Initialize = (function () {
     <div class="w-screen bg-slate-100">
       <!-- TOP SECTION -->
       <div class="flex justify-between bg-white pt-4 pb-4 pl-5 pr-5">
-        <h2 class="text-3xl text-indigo-800 selected-project-name">${
-          inbox.projectName
-        }</h2>
+        <h2 class="text-3xl text-indigo-800 selected-project-name">
+          ${activeProject.projectName}
+        </h2>
         <button type="button" class="addTodoModalBtn border-2 border-indigo-500 bg-indigo-500 hover:bg-indigo-400 hover:border-indigo-400 px-7 py-3 leading-5 rounded-3xl text-white text-white rounded open-modal-btn " id="addTodoModalBtn"
         >Add Todo</button>
       </div>
@@ -93,7 +143,7 @@ export const Initialize = (function () {
 
             <div class="mt-3 p-4 text-right border-t-2 border-slate-150">
               <button type="button" class="modal-btn add-new-todo-btn bg-sky-500 hover:bg-sky-700 px-5 py-2.5 text-sm leading-5 rounded-md text-white" data-project-id=${
-                inbox.id
+                activeProject.id
               }>
                 Add
               </button>
@@ -147,7 +197,7 @@ export const Initialize = (function () {
 
               <div class="mt-3 p-4 text-right border-t-2 border-slate-150">
                 <button type="button" class="modal-btn update-todo-btn bg-sky-500 hover:bg-sky-700 px-5 py-2.5 text-sm leading-5 rounded-md text-white" data-project-id=${
-                  inbox.id
+                  activeProject.id
                 }>
                   Update
                 </button>
@@ -158,7 +208,7 @@ export const Initialize = (function () {
       
       <!-- EMPTY PROJECT MESSAGE -->
       <div class="text-2xl text-indigo-800 pt-4 pb-4 pl-5 pr-5 empty-todos-container ${
-        inbox.TodoList.length === 0 ? "block" : "hidden"
+        activeProject.TodoList.length === 0 ? "block" : "hidden"
       }">
       <p>No todos here...</p>
       </div>
@@ -166,7 +216,7 @@ export const Initialize = (function () {
       <!-- TODOS CONTAINER --> 
       <div class="todo-container pt-4 pb-4 pl-5 pr-5">
         
-        ${inbox.TodoList.map((todo) => {
+        ${activeProject.TodoList.map((todo) => {
           return `
           <div class="todo-card">
             <div
@@ -203,7 +253,7 @@ export const Initialize = (function () {
                   type="button"
                   class="border-2 border-indigo-500 bg-indigo-500 hover:border-indigo-400 hover:bg-indigo-400 rounded-full px-2 py-2 mx-2 open-modal-btn todo-details-btn updateTodoModalBtn"
                   id="updateTodoModalBtn"
-                  data-project-id=${inbox.id}
+                  data-project-id=${activeProject.id}
                   data-todo-id=${todo.id}
                 >
                   <img src=${Update} alt="update" width="20px" class="todo-details-btn"/>
@@ -225,5 +275,5 @@ export const Initialize = (function () {
 
   root.appendChild(divContainerContent);
 
-  return inbox;
+  return newProjects;
 })();
