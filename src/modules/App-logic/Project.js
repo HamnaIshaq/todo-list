@@ -2,11 +2,11 @@ import { v4 as uuidv4 } from "uuid";
 
 // A BLUEPRINT TO CREATE NEW PROJECT WHICH HOSTS CREATED TODOS
 class Project {
-  constructor(projectName) {
-    this._id = uuidv4(); // UNIQUE ID FOR A PROJECT
+  constructor(projectName, id = "", active = false, TodoList = []) {
+    this._id = id ? id : uuidv4(); // UNIQUE ID FOR A PROJECT
     this._projectName = projectName;
-    this._active = false;
-    this._TodoList = [];
+    this._active = active;
+    this._TodoList = TodoList;
   }
 
   get id() {
