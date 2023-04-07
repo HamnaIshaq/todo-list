@@ -9,18 +9,14 @@ import { DeleteTodo } from "./modules/UI/DeleteTodo";
 import { TodoDetails } from "./modules/UI/TodoDetails";
 import { TodoStatus } from "./modules/UI/TodoStatus";
 
-let allProjects = [];
-allProjects.push(Initialize);
-
-let selectedProject = Initialize;
-
+let allProjects = Initialize;
 const root = document.querySelector("#root");
 
 OpenCloseModal("addTodoModal", "addTodoModalBtn");
 CloseModalWithCrossBtn("close");
 
 AddProject(root, allProjects);
-SelectProject(root, allProjects, selectedProject);
+SelectProject(root, allProjects);
 AddTodo(root, allProjects);
 DeleteTodo(root, allProjects);
 TodoDetails(allProjects);
