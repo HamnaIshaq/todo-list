@@ -1,4 +1,6 @@
 import { CloseModalWithBtn } from "./Modal";
+import { AddData } from "../LocalStorage/AddData";
+
 /*
   TODO UPDATE LOGIC
 
@@ -6,7 +8,12 @@ import { CloseModalWithBtn } from "./Modal";
   UPDATE THE TODO WITH THE NEWLY ENTERED DATA
   AND CLOSE THE MODAL
 */
-export const UpdateTodo = (clickedTodoCard, todoId, selectedProject) => {
+export const UpdateTodo = (
+  clickedTodoCard,
+  todoId,
+  selectedProject,
+  allProjects
+) => {
   const todoTitle = document.querySelector(".detail-todo-title");
   const todoDescription = document.querySelector(".detail-todo-description");
   const todoDueDate = document.querySelector(".detail-todo-due-date");
@@ -63,5 +70,7 @@ export const UpdateTodo = (clickedTodoCard, todoId, selectedProject) => {
     todoDueDateEl.textContent = `Due: ${todo.dueDate}`;
 
     CloseModalWithBtn("modal-btn");
+
+    AddData(allProjects);
   }
 };
