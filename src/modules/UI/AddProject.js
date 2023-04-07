@@ -1,4 +1,5 @@
 import Project from "../App-logic/Project";
+import { AddData } from "../LocalStorage/AddData";
 
 import CalendarDark from "../../assets/images/calendar-dark.svg";
 
@@ -24,6 +25,8 @@ export const AddProject = (root, allProject) => {
     } else {
       const newProject = new Project(newProjectTitle.value);
       allProject.push(newProject);
+
+      AddData(allProject);
 
       const divEl = document.createElement("li");
       divEl.classList.add("mb-2");

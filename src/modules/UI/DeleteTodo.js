@@ -1,4 +1,5 @@
 import { RemoveModalListeners, OpenCloseModal } from "./Modal";
+import { AddData } from "../LocalStorage/AddData";
 
 /*
   DELETE TODO LOGIC
@@ -42,6 +43,8 @@ export const DeleteTodo = (root, allProjects) => {
       });
 
       selectedProject.deleteProjectTodo(projectId);
+
+      AddData(allProjects);
 
       RemoveModalListeners("updateTodoModal", "updateTodoModalBtn");
       OpenCloseModal("updateTodoModal", "updateTodoModalBtn");

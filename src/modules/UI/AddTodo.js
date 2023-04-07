@@ -4,6 +4,7 @@ import {
   RemoveModalListeners,
   OpenCloseModal,
 } from "./Modal";
+import { AddData } from "../LocalStorage/AddData";
 
 import Update from "../../assets/images/update.svg";
 import Delete from "../../assets/images/delete.svg";
@@ -61,6 +62,8 @@ export const AddTodo = (root, allProjects) => {
       });
 
       selectedProject.addNewTodo(newTodo);
+
+      AddData(allProjects);
 
       addNewTodoToUI(newTodo);
       RemoveModalListeners("updateTodoModal", "updateTodoModalBtn");
