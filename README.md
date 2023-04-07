@@ -63,3 +63,13 @@ https://dev.to/rahmanfadhil/how-to-generate-unique-id-in-javascript-1b13
 <a href="https://gist.github.com/bradtraversy/1c93938c1fe4f10d1e5b0532ae22e16a">Webpack & Tailwind CSS Setup by Brad Traversy</a>
 
 https://www.underthehoodlearning.com/mvc-architectural-design-pattern-with-vanilla-js/
+
+<a href="https://www.flaticon.com/free-icons/to-do-list" title="to do list icons">To do list icons created by RIkas Dzihab - Flaticon</a>
+
+<a href="https://www.flaticon.com/free-icons/task" title="task icons">Task icons created by Dooder - Flaticon</a>
+
+<a href="https://www.flaticon.com/free-icons/close" title="close icons">Close icons created by icon wind - Flaticon</a>
+
+<a href="https://www.flaticon.com/free-icons/pencil" title="pencil icons">Pencil icons created by Icongeek26 - Flaticon</a>
+
+<a href="https://www.flaticon.com/free-icons/check" title="check icons">Check icons created by Bingge Liu - Flaticon</a>
