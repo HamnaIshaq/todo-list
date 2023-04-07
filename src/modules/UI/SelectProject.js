@@ -35,7 +35,6 @@ export const SelectProject = (root, allProject) => {
           project.active = true;
           RenderSelectedProjectName(root, project.projectName);
           RenderSelectedProjectTodos(root, project);
-          selectedProject = project;
         }
       });
     }
