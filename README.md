@@ -1,75 +1,124 @@
-# Advanced todo list
+# Todo list
 
-# Functionality
+[Live Link](https://hamnaishaq.github.io/todo-list/)
 
-([ ]) Dynamically add todo (use factory or class)
-([ ]) todo Should have the following properties
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li><a href="#getting-started">Getting Started</a></li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#functionalities">Functionalities</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
+  </ol>
+</details>
 
-- title
-- description
-- due date
-- priority
+<!-- ABOUT THE PROJECT -->
 
-([ ]) Create projects or seperate list of todos
+## About The Project
 
-- On load, there is a default project inside which user can store all their todos
-  later on they can create a new project and move their todos
+![Todo list demo video](./assets/todo-list-demo.webm)
 
-([ ]) Seperate application logic from DOM related stuff
-Application logic means
+This application helps you organize your todos in one place.
 
-- creating new todos
-- setting todos as complete
-- changing todo priority etc
-  DOM stuff
-- updating DOM
-- add to DOM
-- delete from DOM etc
+User can perform all CRUD operations i.e. user can create, read, update and delete a todo.
 
-([ ]) BASIC APP FUNCTIONALITIES
-1- view all projects
-2- view all todos in each project (probably just the title and duedate… perhaps changing color for different priorities)
-3- expand a single todo to see/edit its details
-4- delete a todo
+Todos can be seperated by adding them in different projects.
 
-use https://date-fns.org/ to format date
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-# To follow while making this project
+### Built With
 
-1- follow single responsibility principle
-2- use classes (do not have alot of practice with them)
-3- use draw.io to draw a good app architecture diagram
-4- start small and implement small functionalities rathar than big ones
-5- use ES-6 modules
-6- use webpack, npm, babel
+<div>
+	<code><img height="50" src="https://user-images.githubusercontent.com/25181517/192158954-f88b5814-d510-4564-b285-dff7d6400dad.png" alt="HTML" title="HTML" /></code>
+	<code><img height="50" src="https://user-images.githubusercontent.com/25181517/202896760-337261ed-ee92-4979-84c4-d4b829c7355d.png" alt="Tailwind CSS" title="Tailwind CSS" /></code>
+	<code><img height="50" src="https://user-images.githubusercontent.com/25181517/117447155-6a868a00-af3d-11eb-9cfe-245df15c9f3f.png" alt="JavaScript" title="JavaScript" /></code>
+	<code><img height="50" src="https://user-images.githubusercontent.com/25181517/121401671-49102800-c959-11eb-9f6f-74d49a5e1774.png" alt="npm" title="npm" /></code>
+	<code><img height="50" src="https://user-images.githubusercontent.com/25181517/187955008-981340e6-b4cc-441b-80cf-7a5e94d29e7e.png" alt="webpack" title="webpack" /></code>
+</div>
 
-# How to approach this problem
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-First start small and just create a todo with a class
+<!-- GETTING STARTED -->
 
-# Process
+## Getting Started
 
-create a todo
-create a project list from the todo
+To get a local copy up and running follow the following steps.
 
-we will have multiple todos hosted inside project list which contains all todos of 1 single project
-we can then delete a single todo by passing its id to the project
-and we will also make the instance of todo null
+1. Clone this repo
 
-# resources used
+```sh
+git clone https://github.com/HamnaIshaq/todo-list.git
+```
 
-https://dev.to/rahmanfadhil/how-to-generate-unique-id-in-javascript-1b13
+2. Install project dependencies
 
-<a href="https://gist.github.com/bradtraversy/1c93938c1fe4f10d1e5b0532ae22e16a">Webpack & Tailwind CSS Setup by Brad Traversy</a>
+```sh
+npm install
+```
 
-https://www.underthehoodlearning.com/mvc-architectural-design-pattern-with-vanilla-js/
+3. Start a live demo of this project using
 
-<a href="https://www.flaticon.com/free-icons/to-do-list" title="to do list icons">To do list icons created by RIkas Dzihab - Flaticon</a>
+```sh
+npm start
+```
 
-<a href="https://www.flaticon.com/free-icons/task" title="task icons">Task icons created by Dooder - Flaticon</a>
+> **Note**
+> Make sure that the mode is set to "development" for live demo in webpack.config.js file.
 
-<a href="https://www.flaticon.com/free-icons/close" title="close icons">Close icons created by icon wind - Flaticon</a>
+4. Generate bundle files
 
-<a href="https://www.flaticon.com/free-icons/pencil" title="pencil icons">Pencil icons created by Icongeek26 - Flaticon</a>
+```sh
+npm run build
+```
 
-<a href="https://www.flaticon.com/free-icons/check" title="check icons">Check icons created by Bingge Liu - Flaticon</a>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- USAGE -->
+
+## Usage
+
+When you first load the project, you get a default project called "Inbox".
+You can create a new todo by clicking on the "Add Todo" button and providing the details. The newly created todo, will be shown in your project. You can then update or delete the todo by using the appropriate buttons. Additionally, you can create a new project and enter your todos in that project as well. All data is stored in local storage to persist it event after closing tab/browser.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- FUNCTIONALITIES -->
+
+## Functionalities
+
+- [x] Add todo
+- [x] Delete todo
+- [x] Update todo
+- [x] Update completed status of a todo
+- [x] Add project
+- [x] Show todos of selected project
+- [x] Persist data with local storage
+- [ ] Delete project
+- [ ] Mobile responsive
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- ACKNOWLEDGMENTS -->
+
+## Acknowledgments
+
+- [Design inspiration - Kanban task management web app](https://www.frontendmentor.io/challenges/kanban-task-management-web-app-wgQLt-HlbB)
+- [How to Generate Unique ID in JavaScript](https://dev.to/rahmanfadhil/how-to-generate-unique-id-in-javascript-1b13)
+- [Webpack & Tailwind CSS Setup by Brad Traversy](https://gist.github.com/bradtraversy/1c93938c1fe4f10d1e5b0532ae22e16a)
+- [To do list icons created by RIkas Dzihab - Flaticon](https://www.flaticon.com/free-icons/to-do-list)
+- [Task icons created by Dooder - Flaticon](https://www.flaticon.com/free-icons/task)
+- [Close icons created by icon wind - Flaticon](https://www.flaticon.com/free-icons/close)
+- [Pencil icons created by Icongeek26 - Flaticon](https://www.flaticon.com/free-icons/pencil)
+- [Check icons created by Bingge Liu - Flaticon](https://www.flaticon.com/free-icons/check)
+- [Hosting a webpack project with github pages](https://www.learnhowtoprogram.com/intermediate-javascript/team-week/hosting-a-webpack-project-with-gh-pages)
+- [Best README Template](https://github.com/othneildrew/Best-README-Template)
+- [Profile technology icons](https://github.com/marwin1991/profile-technology-icons)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
