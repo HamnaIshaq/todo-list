@@ -78,6 +78,12 @@ npm start
 npm run build
 ```
 
+5. Deploy on Github pages
+
+```sh
+npm run deploy
+```
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- USAGE -->
