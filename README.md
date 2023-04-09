@@ -25,7 +25,8 @@
 
 ## About The Project
 
-![Todo list demo video](./assets/todo-list-demo.webm)
+![todo-list-demo](https://user-images.githubusercontent.com/35004128/230769312-156a5945-5001-4060-b679-b4ad2861706f.gif)
+
 
 This application helps you organize your todos in one place.
 
