@@ -13,6 +13,7 @@ let allProjects = Initialize;
 const root = document.querySelector("#root");
 
 OpenCloseModal("addTodoModal", "addTodoModalBtn");
+OpenCloseModal("updateTodoModal", "updateTodoModalBtn");
 CloseModalWithCrossBtn("close");
 
 AddProject(root, allProjects);
