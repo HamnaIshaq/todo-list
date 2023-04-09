@@ -1,5 +1,6 @@
 import { RenderSelectedProjectName } from "./RenderSelectedProjectName";
 import { RenderSelectedProjectTodos } from "./RenderSelectedProjectTodos";
+import { AddData } from "../LocalStorage/AddData";
 
 import CalendarDark from "../../assets/images/calendar-dark.svg";
 import CalendarLight from "../../assets/images/calendar-img.svg";
@@ -37,6 +38,8 @@ export const SelectProject = (root, allProject) => {
           RenderSelectedProjectTodos(root, project);
         }
       });
+
+      AddData(allProject);
     }
   }
 };
