@@ -2,6 +2,7 @@ import Project from "../App-logic/Project";
 import { AddData } from "../LocalStorage/AddData";
 
 import CalendarDark from "../../assets/images/calendar-dark.svg";
+import DeleteDark from "../../assets/images/delete-dark.svg";
 
 /*
   ADD PROJECT LOGIC
@@ -31,9 +32,12 @@ export const AddProject = (root, allProject) => {
       const divEl = document.createElement("li");
       divEl.classList.add("mb-2");
       divEl.innerHTML = `
-        <button type="button" class="flex items-center hover:bg-indigo-400 hover:border-indigo-400 ext-left pl-6 rounded-r-3xl w-full py-2 text-slate-900 project-btn" data-project-id=${newProject.id}>
+        <button type="button" class="flex items-center hover:bg-indigo-400 hover:border-indigo-400 ext-left pl-6 rounded-r-3xl w-full py-2 pr-5 text-slate-900 project-btn" data-project-id=${newProject.id}>
           <img src=${CalendarDark} alt="" width="30px" class="mr-3"/>
           <span>${newProjectTitle.value}</span>
+          <span role="button" class="ml-auto delete-project-btn">
+            <img src=${DeleteDark} alt="delete project" width="25px" class="delete-project-btn"/>
+          </span>
         </button>
       `;
       projectContainer.appendChild(divEl);
