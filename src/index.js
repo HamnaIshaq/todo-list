@@ -2,6 +2,7 @@ import "./assets/styles/style.css";
 
 import { Initialize } from "./modules/Initialize";
 import { AddProject } from "./modules/UI/AddProject";
+import { DeleteProject } from "./modules/UI/DeleteProject";
 import { SelectProject } from "./modules/UI/SelectProject";
 import { OpenCloseModal, CloseModalWithCrossBtn } from "./modules/UI/Modal";
 import { AddTodo } from "./modules/UI/AddTodo";
@@ -17,6 +18,7 @@ OpenCloseModal("updateTodoModal", "updateTodoModalBtn");
 CloseModalWithCrossBtn("close");
 
 AddProject(root, allProjects);
+DeleteProject(root, allProjects);
 SelectProject(root, allProjects);
 AddTodo(root, allProjects);
 DeleteTodo(root, allProjects);
