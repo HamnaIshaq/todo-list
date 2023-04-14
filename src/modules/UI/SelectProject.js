@@ -4,6 +4,8 @@ import { AddData } from "../LocalStorage/AddData";
 
 import CalendarDark from "../../assets/images/calendar-dark.svg";
 import CalendarLight from "../../assets/images/calendar-img.svg";
+import Delete from "../../assets/images/delete.svg";
+import DeleteDark from "../../assets/images/delete-dark.svg";
 
 export const SelectProject = (root, allProject) => {
   const projectContainer = root.querySelector(".project-container");
@@ -22,6 +24,11 @@ export const SelectProject = (root, allProject) => {
 
         const img = btn.children[0];
         img.src = CalendarDark;
+
+        if (btn.children[2]) {
+          const deleteBtn = btn.children[2].querySelector("img");
+          deleteBtn.src = DeleteDark;
+        }
       });
 
       e.target.classList.add("bg-indigo-500");
@@ -29,6 +36,10 @@ export const SelectProject = (root, allProject) => {
       e.target.classList.add("text-white");
       e.target.classList.remove("text-slate-900");
       e.target.children[0].src = CalendarLight;
+
+      if (e.target.children[2]) {
+        e.target.children[2].querySelector("img").src = Delete;
+      }
 
       allProject.forEach((project) => {
         project.active = false;
