@@ -7,6 +7,8 @@ import Calendar from "../assets/images/calendar-img.svg";
 import CalendarDark from "../assets/images/calendar-dark.svg";
 import Update from "../assets/images/update.svg";
 import Delete from "../assets/images/delete.svg";
+import DeleteDark from "../assets/images/delete-dark.svg";
+
 import Check from "../assets/images/check.svg";
 
 /*
@@ -19,8 +21,7 @@ import Check from "../assets/images/check.svg";
 */
 export const Initialize = (function () {
   let allProjects = GetData("projects");
-
-  if (!allProjects) {
+  if (allProjects.length === 0) {
     const inbox = new Project("Inbox");
     inbox.active = true;
     AddData([inbox]);
@@ -65,11 +66,20 @@ export const Initialize = (function () {
           <li class="mb-2">
             <button
               type="button"
-              class="flex items-center border-indigo-500 bg-indigo-500 hover:bg-indigo-400 hover:border-indigo-400 w-full py-2 rounded-r-3xl text-white text-left pl-6 ml-0 project-btn"
+              class="flex items-center border-indigo-500 bg-indigo-500 hover:bg-indigo-400 hover:border-indigo-400 w-full py-2 pr-5 rounded-r-3xl text-white text-left pl-6 ml-0 project-btn ${
+                project.projectName === "Inbox" ? "inbox-project-btn" : ""
+              }"
               data-project-id=${project.id}
             >
               <img src=${Calendar} alt="" width="30px" class="mr-3"/>
               <span>${project.projectName}</span>
+              ${
+                project.projectName === "Inbox"
+                  ? ""
+                  : `<span role="button" class="ml-auto delete-project-btn">
+                  <img src=${Delete} alt="delete project" width="25px" class="delete-project-btn"/>
+                </span>`
+              }
             </button>
           </li>
           `
@@ -77,10 +87,19 @@ export const Initialize = (function () {
             <li class="mb-2">
               <button 
                 type="button" 
-                class="flex items-center hover:bg-indigo-400 hover:border-indigo-400 ext-left pl-6 rounded-r-3xl w-full py-2 text-slate-900 project-btn" 
+                class="flex items-center hover:bg-indigo-400 hover:border-indigo-400 ext-left pl-6 rounded-r-3xl w-full py-2 pr-5 text-slate-900 project-btn ${
+                  project.projectName === "Inbox" ? "inbox-project-btn" : ""
+                }" 
                 data-project-id=${project.id}>
               <img src=${CalendarDark} alt="" width="30px" class="mr-3"/>
               <span>${project.projectName}</span>
+              ${
+                project.projectName === "Inbox"
+                  ? ""
+                  : `<span role="button" class="ml-auto delete-project-btn">
+                  <img src=${DeleteDark} alt="delete project" width="25px" class="delete-project-btn"/>
+                </span>`
+              }
               </button>
             </li>
           `;
