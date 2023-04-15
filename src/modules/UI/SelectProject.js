@@ -46,7 +46,7 @@ export const SelectProject = (root, allProject) => {
         if (e.target.getAttribute("data-project-id") === project.id) {
           project.active = true;
           RenderSelectedProjectName(root, project.projectName);
-          RenderSelectedProjectTodos(root, project);
+          RenderSelectedProjectTodos(root, project, allProject);
         }
       });
 
