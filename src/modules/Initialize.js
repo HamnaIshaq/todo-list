@@ -66,7 +66,7 @@ export const Initialize = (function () {
           <li class="mb-2">
             <button
               type="button"
-              class="flex items-center border-indigo-500 bg-indigo-500 hover:bg-indigo-400 hover:border-indigo-400 w-full py-2 pr-5 rounded-r-3xl text-white text-left pl-6 ml-0 project-btn ${
+              class="flex items-center border-indigo-500 bg-indigo-500 hover:outline hover:outline-2 hover:outline-indigo-400 w-full py-2 pr-5 rounded-r-3xl text-white text-left pl-6 ml-0 project-btn ${
                 project.projectName === "Inbox" ? "inbox-project-btn" : ""
               }"
               data-project-id=${project.id}
@@ -87,7 +87,7 @@ export const Initialize = (function () {
             <li class="mb-2">
               <button 
                 type="button" 
-                class="flex items-center hover:bg-indigo-400 hover:border-indigo-400 ext-left pl-6 rounded-r-3xl w-full py-2 pr-5 text-slate-900 project-btn ${
+                class="flex items-center hover:outline hover:outline-2 hover:outline-indigo-400 text-left pl-6 rounded-r-3xl w-full py-2 pr-5 text-slate-900 project-btn ${
                   project.projectName === "Inbox" ? "inbox-project-btn" : ""
                 }" 
                 data-project-id=${project.id}>

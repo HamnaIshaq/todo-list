@@ -32,7 +32,7 @@ export const AddProject = (root, allProject) => {
       const divEl = document.createElement("li");
       divEl.classList.add("mb-2");
       divEl.innerHTML = `
-        <button type="button" class="flex items-center hover:bg-indigo-400 hover:border-indigo-400 ext-left pl-6 rounded-r-3xl w-full py-2 pr-5 text-slate-900 project-btn" data-project-id=${newProject.id}>
+        <button type="button" class="flex items-center hover:outline hover:outline-2 hover:outline-indigo-400 text-left pl-6 rounded-r-3xl w-full py-2 pr-5 text-slate-900 project-btn" data-project-id=${newProject.id}>
           <img src=${CalendarDark} alt="" width="30px" class="mr-3"/>
           <span>${newProjectTitle.value}</span>
           <span role="button" class="ml-auto delete-project-btn">
