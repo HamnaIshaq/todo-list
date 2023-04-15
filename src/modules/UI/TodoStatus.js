@@ -1,3 +1,5 @@
+import { AddData } from "../LocalStorage/AddData";
+
 /*
   UPDATE STATUS OF TODO LOGIC
 
@@ -6,36 +8,39 @@
   DEPENDING ON THE PREVIOUS STATE
 */
 export const TodoStatus = (root, allProjects) => {
-  const todoContainer = root.querySelector(".todo-container");
+  const todoStatusInput = root.querySelectorAll(".todo-status");
 
-  todoContainer.addEventListener("click", (e) => changeTodoStatus(e));
+  todoStatusInput.forEach((input) => {
+    input.addEventListener("click", changeTodoStatus);
+  });
 
   function changeTodoStatus(e) {
-    if (e.target.classList.contains("todo-status")) {
-      let selectedProject;
-      const todoId =
-        e.target.parentElement.parentElement.parentElement.getAttribute(
-          "data-todo-id"
-        );
+    let selectedProject;
+    const tickImg =
+      e.currentTarget.parentElement.querySelector(".checkmark-img");
+    const todoCard = e.currentTarget.parentElement.parentElement.parentElement;
+    const todoId = todoCard.getAttribute("data-todo-id");
 
-      allProjects.forEach((project) => {
-        if (project.active === true) {
-          selectedProject = project;
-        }
-      });
-
-      selectedProject.updateProjectTodoCompleted(todoId);
-
-      const checkmarkImg =
-        e.target.parentElement.querySelector(".checkmark-img");
-
-      if (e.target.checked) {
-        checkmarkImg.classList.remove("hidden");
-        checkmarkImg.classList.add("block");
-      } else {
-        checkmarkImg.classList.remove("block");
-        checkmarkImg.classList.add("hidden");
+    allProjects.forEach((project) => {
+      if (project.active === true) {
+        selectedProject = project;
       }
+    });
+
+    selectedProject.updateProjectTodoCompleted(todoId);
+
+    if (e.currentTarget.checked) {
+      tickImg.classList.remove("hidden");
+      tickImg.classList.add("block");
+      todoCard.classList.add("line-through");
+      todoCard.classList.add("text-slate-400");
+    } else {
+      tickImg.classList.remove("block");
+      tickImg.classList.add("hidden");
+      todoCard.classList.remove("line-through");
+      todoCard.classList.remove("text-slate-400");
     }
+
+    AddData(allProjects);
   }
 };
