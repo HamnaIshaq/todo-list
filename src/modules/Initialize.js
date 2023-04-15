@@ -107,7 +107,7 @@ export const Initialize = (function () {
         .join("")}
       </ul>
       <div class="py-2 px-5">
-        <input type="text" id="new-project-title" class="block bg-white w-full border border-slate-300 rounded-md p-2 focus:outline-none focus:border-sky-500 focus:ring-1" placeholder="Project title..."/>
+        <input type="text" id="new-project-title" class="block bg-white w-full border border-slate-300 rounded-md p-2 focus:outline-none focus:border-sky-500 focus:ring-1" placeholder="Project title..." required/>
       </div>
       <button type="button" class="text-red-600 w-full text-left py-2 px-5 add-new-project-btn">
         <span class="text-lg">+</span> Add Project
@@ -138,19 +138,19 @@ export const Initialize = (function () {
               <form>
                 <div>
                   <label for="title" class="block font-medium text-slate-700 mb-1">Title</label>
-                  <input type="text" id="title" placeholder="Walk the dog" class="block bg-white w-full border border-slate-300 rounded-md p-2 focus:outline-none focus:border-sky-500 focus:ring-1 new-todo-title" />
+                  <input type="text" id="title" placeholder="Walk the dog" class="block bg-white w-full border border-slate-300 rounded-md p-2 focus:outline-none focus:border-sky-500 focus:ring-1 new-todo-title" required />
                 </div>
                 <div class="mt-3">
                   <label for="description" class="block font-medium text-slate-700 mb-1">Description</label>
-                  <textarea id="description" class="block bg-white w-full border border-slate-300 rounded-md p-2 focus:outline-none focus:border-sky-500 focus:ring-1 new-todo-description" placeholder="walk for about 30 min..."></textarea>
+                  <textarea id="description" class="block bg-white w-full border border-slate-300 rounded-md p-2 focus:outline-none focus:border-sky-500 focus:ring-1 new-todo-description" placeholder="walk for about 30 min..." required></textarea>
                 </div>
                 <div class="mt-3">
                   <label for="due-date" class="block font-medium text-slate-700 mb-1">Due Date</label>
-                  <input type="date" id="due-date" class="block bg-white w-full border border-slate-300 rounded-md p-2 focus:outline-none focus:border-sky-500 focus:ring-1 new-todo-due-date"/>
+                  <input type="date" id="due-date" class="block bg-white w-full border border-slate-300 rounded-md p-2 focus:outline-none focus:border-sky-500 focus:ring-1 new-todo-due-date" required/>
                 </div>
                 <div class="mt-3">
                   <label for="priority" class="block font-medium text-slate-700 mb-1">Priority</label>
-                  <select id="priority" class="block bg-white w-full border border-slate-300 rounded-md p-2 focus:outline-none focus:border-sky-500 focus:ring-1 new-todo-priority">
+                  <select id="priority" class="block bg-white w-full border border-slate-300 rounded-md p-2 focus:outline-none focus:border-sky-500 focus:ring-1 new-todo-priority" required>
                     <option value="" selected disabled>Select Priority</option>
                     <option value="1">High</option>
                     <option value="2">Medium</option>
@@ -183,19 +183,19 @@ export const Initialize = (function () {
                 <form>
                   <div>
                     <label for="detail-title" class="block font-medium text-slate-700 mb-1">Title</label>
-                    <input type="text" id="detail-title" placeholder="Walk the dog" class="block bg-white w-full border border-slate-300 rounded-md p-2 focus:outline-none focus:border-sky-500 focus:ring-1 detail-todo-title" />
+                    <input type="text" id="detail-title" placeholder="Walk the dog" class="block bg-white w-full border border-slate-300 rounded-md p-2 focus:outline-none focus:border-sky-500 focus:ring-1 detail-todo-title" required/>
                   </div>
                   <div class="mt-3">
                     <label for="detail-description" class="block font-medium text-slate-700 mb-1">Description</label>
-                    <textarea id="detail-description" class="block bg-white w-full border border-slate-300 rounded-md p-2 focus:outline-none focus:border-sky-500 focus:ring-1 detail-todo-description" placeholder="walk for about 30 min..."></textarea>
+                    <textarea id="detail-description" class="block bg-white w-full border border-slate-300 rounded-md p-2 focus:outline-none focus:border-sky-500 focus:ring-1 detail-todo-description" placeholder="walk for about 30 min..." required></textarea>
                   </div>
                   <div class="mt-3">
                     <label for="detail-due-date" class="block font-medium text-slate-700 mb-1">Due Date</label>
-                    <input type="date" id="detail-due-date" class="block bg-white w-full border border-slate-300 rounded-md p-2 focus:outline-none focus:border-sky-500 focus:ring-1 detail-todo-due-date"/>
+                    <input type="date" id="detail-due-date" class="block bg-white w-full border border-slate-300 rounded-md p-2 focus:outline-none focus:border-sky-500 focus:ring-1 detail-todo-due-date" required/>
                   </div>
                   <div class="mt-3">
                     <label for="detail-priority" class="block font-medium text-slate-700 mb-1">Priority</label>
-                    <select id="detail-priority" class="block bg-white w-full border border-slate-300 rounded-md p-2 focus:outline-none focus:border-sky-500 focus:ring-1 detail-todo-priority">
+                    <select id="detail-priority" class="block bg-white w-full border border-slate-300 rounded-md p-2 focus:outline-none focus:border-sky-500 focus:ring-1 detail-todo-priority" required>
                       <option value="" selected disabled>Select Priority</option>
                       <option value="1">High</option>
                       <option value="2">Medium</option>
