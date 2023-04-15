@@ -3,6 +3,7 @@ import {
   OpenCloseModal,
   CloseModalWithBtn,
 } from "./Modal";
+import { TodoStatus } from "./TodoStatus";
 
 import Update from "../../assets/images/update.svg";
 import Delete from "../../assets/images/delete.svg";
@@ -21,7 +22,7 @@ import Check from "../../assets/images/check.svg";
   ADD NEW EVENT LISTENERS FOR UPDATE TODO BTN AND MODAL
   FOR THE NEWLY RENDERED TODOS
 */
-export const RenderSelectedProjectTodos = (root, project) => {
+export const RenderSelectedProjectTodos = (root, project, allProjects) => {
   const emptyProjectMessage = root.querySelector(".empty-todos-container");
   const projectContainer = root.querySelector(".todo-container");
 
@@ -91,4 +92,5 @@ export const RenderSelectedProjectTodos = (root, project) => {
   RemoveModalListeners("updateTodoModal", "updateTodoModalBtn");
   OpenCloseModal("updateTodoModal", "updateTodoModalBtn");
   CloseModalWithBtn("modal-btn");
+  TodoStatus(root, allProjects);
 };
