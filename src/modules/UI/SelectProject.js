@@ -13,7 +13,13 @@ export const SelectProject = (root, allProject) => {
   projectContainer.addEventListener("click", (e) => onClickProject(e));
 
   function onClickProject(e) {
-    if (e.target.getAttribute("data-project-id")) {
+    let projectBtn;
+    if (e.target.parentElement.getAttribute("data-project-id")) {
+      projectBtn = e.target.parentElement;
+    } else if (e.target.getAttribute("data-project-id")) {
+      projectBtn = e.target;
+    }
+    if (projectBtn) {
       const projectBtns = projectContainer.querySelectorAll(".project-btn");
       projectBtns.forEach((btn) => {
         btn.classList.remove("bg-indigo-500");
@@ -31,19 +37,19 @@ export const SelectProject = (root, allProject) => {
         }
       });
 
-      e.target.classList.add("bg-indigo-500");
-      e.target.classList.add("border-indigo-500");
-      e.target.classList.add("text-white");
-      e.target.classList.remove("text-slate-900");
-      e.target.children[0].src = CalendarLight;
+      projectBtn.classList.add("bg-indigo-500");
+      projectBtn.classList.add("border-indigo-500");
+      projectBtn.classList.add("text-white");
+      projectBtn.classList.remove("text-slate-900");
+      projectBtn.children[0].src = CalendarLight;
 
-      if (e.target.children[2]) {
-        e.target.children[2].querySelector("img").src = Delete;
+      if (projectBtn.children[2]) {
+        projectBtn.children[2].querySelector("img").src = Delete;
       }
 
       allProject.forEach((project) => {
         project.active = false;
-        if (e.target.getAttribute("data-project-id") === project.id) {
+        if (projectBtn.getAttribute("data-project-id") === project.id) {
           project.active = true;
           RenderSelectedProjectName(root, project.projectName);
           RenderSelectedProjectTodos(root, project, allProject);
