@@ -108,7 +108,7 @@ You can create a new todo by clicking on the "Add Todo" button and providing the
 - [x] Add project
 - [x] Show todos of selected project
 - [x] Persist data with local storage
-- [ ] Delete project
+- [x] Delete project
 - [ ] Mobile responsive
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
