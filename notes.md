@@ -8,9 +8,11 @@
 features included
 
 - view all projects
-- view all todos in each project (probably just the title and duedate… perhaps changing color for different priorities)
-- expand a single todo to see/edit its details
+- delete a project
+- view all todos in each project (title and duedate… the priority is indicated with border color of card)
+- edit single todo details
 - delete a todo
+- store all data in local storage
 
 approach
 
@@ -60,7 +62,7 @@ Initialize.js
 - used module pattern to make initial basic layout and render it on 1st page load
 - created a default project named "inbox" with dummy data and inserted it on 1st page load
 
-31-03-2023
+---
 
 - add new todo to UI and project array - DONE
 - delete a todo from UI and project array - DONE
@@ -70,6 +72,59 @@ todo
 - add a new project - DONE
 - switch between projects - DONE
 - show selected projects todos - DONE
-- localstorage
-- integrate date-fns package
-- clean up code
+- localstorage - DONE
+- integrate date-fns package - DID NOT INCLUDE THIS
+- clean up code (PENDING)
+
+I wanted to use MVC pattern to build this project but decided against it. I wanted to first become a bit better with webpack and just seperating app logic from DOM.
+
+15-04-2023
+
+I think I am done with the project functionalities. The UI code needs to be cleaned up but the functionalities are done
+
+# APP WALKTHROUGH
+
+Default project named Inbox
+click add todo button
+fill in the modal with your todo details
+click on the add button
+todo is added in project and also stored in local storage
+todo is now visible on the UI
+
+Oh no, you misspelled something in the title?
+no problem
+click on the pencil icon of your todo
+a modal will open that contains all the details of your clicked todo
+edit it however you like
+but remember you cannot create an empty todo so be sure to fill in all the detail
+click on the update button in modal
+your todo will be updated in UI and local storage
+
+have you completed your todo?
+go ahead and click on the your todo title or the checkbox
+your todo will be marked as completed in UI and local storage
+of course you can uncheck this as well
+
+want to delete a todo?
+just click on the cross icon on the todo card
+this will delete your todo in UI and local storage
+
+completed all todos in a project and now you want to delete that project?
+just click on the cross icon next to project name in UI and local storage
+
+# bugs
+
+- medium
+
+SOLVED
+-->currently targeting the project using parent and event object. individual project button contains image, project name, and delete icon.
+when the project name is clicked, that project is not selected.
+when the project image is clicked, that project is not selected.
+make it so any one of these clicks selects the project
+
+- low
+  SOLVED
+  --> on hovering the project, the background and text color are too dark and text is not clearly visible
+  to show a hovered project, show an outline instead of background color
+
+all other bugs encountered will be written here with a brief description and possible solution
