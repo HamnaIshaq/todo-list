@@ -4,6 +4,7 @@ import {
   RemoveModalListeners,
   OpenCloseModal,
 } from "./Modal";
+import { TodoStatus } from "./TodoStatus";
 import { AddData } from "../LocalStorage/AddData";
 
 import Update from "../../assets/images/update.svg";
@@ -132,5 +133,7 @@ export const AddTodo = (root, allProjects) => {
     todoDescription.value = "";
     todoDueDate.value = "";
     todoPriority.value = "";
+
+    TodoStatus(root, allProjects);
   }
 };
