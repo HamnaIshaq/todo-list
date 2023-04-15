@@ -44,7 +44,7 @@ export const RenderSelectedProjectTodos = (root, project) => {
                 : todo.priority === 2
                 ? "border-l-yellow-500"
                 : "border-l-green-500"
-            }"
+            } ${todo.completed ? "line-through text-slate-400" : ""}"
             data-todo-id=${todo.id}
             >
             <div>
