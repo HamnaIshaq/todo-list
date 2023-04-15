@@ -86,9 +86,13 @@ export const TodoDetails = (allProjects) => {
         if (todo.completed) {
           tickImg.classList.remove("hidden");
           tickImg.classList.add("block");
+          clickedTodoCard.classList.add("line-through");
+          clickedTodoCard.classList.add("text-slate-400");
         } else {
           tickImg.classList.remove("block");
           tickImg.classList.add("hidden");
+          clickedTodoCard.classList.remove("line-through");
+          clickedTodoCard.classList.remove("text-slate-400");
         }
 
         todoDueDateEl.textContent = `Due: ${todo.dueDate}`;

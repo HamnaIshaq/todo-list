@@ -245,8 +245,9 @@ export const Initialize = (function () {
                   : todo.priority === 2
                   ? "border-l-yellow-500"
                   : "border-l-green-500"
-              }"
-              data-todo-id=${todo.id}
+              } ${todo.completed ? "line-through text-slate-400" : ""}
+                "
+                data-todo-id=${todo.id}
               >
               <div>
                 <label for=${todo.id} class="block relative flex items-center">
