@@ -50,6 +50,7 @@ export const Initialize = (function () {
   const divContainerContent = document.createElement("div");
 
   divContainerContent.classList.add("flex");
+  divContainerContent.classList.add("h-screen");
 
   divContainerContent.innerHTML = `
     <!--  SIDEBAR  -->
