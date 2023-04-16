@@ -56,7 +56,7 @@ export const Initialize = (function () {
     <!--  SIDEBAR  -->
     <div class="w-1/4 h-screen bg-white border-r-2 border-slate-100">
       <h1 class="text-3xl mt-3 mb-3 text-indigo-800 flex py-2 px-5">
-        <img src=${Logo} alt="" style="width:40px;"/>
+        <img src=${Logo} alt="" width="40px" height="40px"/>
         Todo List
       </h1>
       <ul class="project-container mr-5">
