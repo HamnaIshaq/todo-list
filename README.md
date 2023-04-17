@@ -113,6 +113,12 @@ You can create a new todo by clicking on the "Add Todo" button and providing the
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<!-- IMPROVEMENTS -->
+
+## Improvements
+
+- [ ] Splitting code in Initialize.js to separate DOM and core app functionality to follow single responsibility principle (improvement suggested by antero from TOP discord)
+
 <!-- ACKNOWLEDGMENTS -->
 
 ## Acknowledgments
