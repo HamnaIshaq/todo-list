@@ -1,8 +1,8 @@
-import Project from "../App-logic/Project";
-import { AddData } from "../LocalStorage/AddData";
+import Project from "../../App-logic/Project";
+import { AddData } from "../../LocalStorage/AddData";
 
-import CalendarDark from "../../assets/images/calendar-dark.svg";
-import DeleteDark from "../../assets/images/delete-dark.svg";
+import CalendarDark from "../../../assets/images/calendar-dark.svg";
+import DeleteDark from "../../../assets/images/delete-dark.svg";
 
 /*
   ADD PROJECT LOGIC

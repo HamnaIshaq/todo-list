@@ -1,15 +1,15 @@
-import Todo from "../App-logic/Todo";
+import Todo from "../../App-logic/Todo";
 import {
   CloseModalWithBtn,
   RemoveModalListeners,
   OpenCloseModal,
-} from "./Modal";
-import { TodoStatus } from "./TodoStatus";
-import { AddData } from "../LocalStorage/AddData";
+} from "../Modal";
 
-import Update from "../../assets/images/update.svg";
-import Delete from "../../assets/images/delete.svg";
-import Check from "../../assets/images/check.svg";
+import { AddData } from "../../LocalStorage/AddData";
+
+import Update from "../../../assets/images/update.svg";
+import Delete from "../../../assets/images/delete.svg";
+import Check from "../../../assets/images/check.svg";
 
 /*
   ADD TODO LOGIC
@@ -133,7 +133,5 @@ export const AddTodo = (root, allProjects) => {
     todoDescription.value = "";
     todoDueDate.value = "";
     todoPriority.value = "";
-
-    TodoStatus(root, allProjects);
   }
 };

@@ -2,12 +2,11 @@ import {
   RemoveModalListeners,
   OpenCloseModal,
   CloseModalWithBtn,
-} from "./Modal";
-import { TodoStatus } from "./TodoStatus";
+} from "../Modal";
 
-import Update from "../../assets/images/update.svg";
-import Delete from "../../assets/images/delete.svg";
-import Check from "../../assets/images/check.svg";
+import Update from "../../../assets/images/update.svg";
+import Delete from "../../../assets/images/delete.svg";
+import Check from "../../../assets/images/check.svg";
 
 /*
   RENDER SELECTED PROJECT TODOS LOGIC
@@ -92,5 +91,4 @@ export const RenderSelectedProjectTodos = (root, project, allProjects) => {
   RemoveModalListeners("updateTodoModal", "updateTodoModalBtn");
   OpenCloseModal("updateTodoModal", "updateTodoModalBtn");
   CloseModalWithBtn("modal-btn");
-  TodoStatus(root, allProjects);
 };
