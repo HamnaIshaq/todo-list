@@ -18,10 +18,6 @@ export const DeleteProject = (root, allProjects, deleteImg) => {
   const projectContainer = root.querySelector(".project-container");
   const inboxProjectBtn = projectContainer.querySelector(".inbox-project-btn");
 
-  //projectContainer.addEventListener("click", (e) => onClickProject(e));
-
-  //function onClickProject(e) {
-  //if (e.target.classList.contains("delete-project-btn")) {
   let clickedProject, inboxProject, activeProject;
   clickedProject = deleteImg.parentElement.parentElement;
   const projectId = clickedProject.getAttribute("data-project-id");
@@ -51,6 +47,4 @@ export const DeleteProject = (root, allProjects, deleteImg) => {
   AddData(allProjects);
 
   clickedProject.parentElement.remove();
-  //}
-  //}
 };
